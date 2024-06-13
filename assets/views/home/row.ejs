@@ -39,7 +39,7 @@
   <span ng-if="user.isFlairMod && !onIndexPage && reference.edited" && isApprovable(reference)>
     <font class="editstar" title="This reference was edited at some point.">*</font>
   </span>
-  <span ng-if="user.isFlairMod && !onIndexPage && reference.verified && isApprovable(reference)">
+  <span ng-if="user.isFlairMod && !onIndexPage && reference.verified && reference.approved && isApprovable(reference)">
     <sup><font class="greencheck" title="This trade has been approved and logged by both users.">✓</font></sup>
   </span>
 </td>
