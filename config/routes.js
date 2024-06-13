@@ -113,6 +113,11 @@ module.exports.routes = {
     action     : 'delComment'
   },
 
+  'post /reference/rejectWithNote' : {
+    controller : 'reference',
+    action     : 'rejectWithNote'
+  },
+
   'get /flair/all' : {
     controller : 'reference',
     action     : 'getFlairs'

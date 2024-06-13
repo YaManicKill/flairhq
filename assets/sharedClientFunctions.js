@@ -27,6 +27,38 @@ module.exports = {
         $scope.$apply();
       });
     };
+    $scope.rejectionReasonsArray = [
+      "Full details not posted when trading",
+      "Details not posted on the subreddit after trading",
+      "Incorrect permalink",
+      "No confirmation that a trade was completed",
+      "Pokémon was just given away and not actually negotiated for (outside giveaway thread)",
+      "Trade was discussed in part over PM",
+      "IOU trade"
+    ];
+    $scope.rejectionReasonsState = [true, false, true, false];
+    $scope.rejectWNote = function () {
+      var url = "/reference/rejectWithNote";
+      //$scope.editRefError = $scope.validateRef($scope.selectedRef);
+      //if ($scope.editRefError) {
+      //  return;
+      //}
+      //$scope.indexSpin.editRef = true;
+      io.socket.post(url, $scope.selectedRef, function (data, res) {
+        $scope.indexSpin.editRef = false;
+        if (res.statusCode === 200) {
+          $scope.indexOk.editRef = true;
+          var index = $scope.refUser.references.findIndex(function (searchRef) {
+            return searchRef.id === $scope.selectedRef.id;
+          });
+          $scope.refUser.references[index] = $scope.selectedRef;
+        } else {
+          $scope.editRefError = "There was an issue.";
+          console.log(res);
+        }
+        $scope.$apply();
+      });
+    };
     $scope.validateRef = function (ref) {
       if (!ref.type) {
         return "Please choose a type.";

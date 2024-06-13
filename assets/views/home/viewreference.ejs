@@ -61,6 +61,16 @@
             </div>
           </div>
         </div>
+        <div ng-if="onIndexPage" class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong>Rejection Notes</strong>
+            </div>
+            <div class="panel-body">
+              {{ selectedRef.rejectnotes.join(', ') }}
+                </ul></div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

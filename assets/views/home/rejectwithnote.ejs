@@ -1,0 +1,51 @@
+<div class="modal fade" id="rejectWithNoteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                  class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Reject reference</h4>
+      </div>
+
+      <div class="modal-body row">
+        <div class="col-md-12">
+          <div id="viewReference" class="panel panel-default">
+            <div class="panel-body">
+              <div class="checkbox">
+                <% rejectionReasons = [
+                  "Full details not posted when trading",
+                  "Details not posted on the subreddit after trading",
+                  "Incorrect permalink",
+                  "No confirmation that a trade was completed",
+                  "Pokémon was just given away and not actually negotiated for (outside giveaway thread)",
+                  "Trade was discussed in part over PM",
+                  "IOU trade"
+                ];
+                for (var i = 0; i < rejectionReasons.length; i++) { %>
+                <div class="checkbox">
+                  <label><input type="checkbox" ng-model="rejectionReasonsState[0]" value="<%= rejectionReasons[i] %>"><%= rejectionReasons[i] %></label>
+                </div>
+                 <% } %>
+                <div class="checkbox">
+                  <label><input type="checkbox" ng-model="selectedRef.bla" value="Other">Other</label>
+                  <input ng-list class="form-control" ng-model="selectedRef.rejectnotes"></input>
+                  {{selectedRef.rejectnotes |json }}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary has-spinner" ng-click="rejectWNote()"
+                ng-class="[indexOk.editRef ? 'glyphicon glyphicon-ok' : '',
+                indexSpin.editRef ? 'active' : '']">
+          <span class="spinner"><i class="icon-spin icon-refresh"></i></span>
+          {{indexOk.editRef ? "" : "Save changes"}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

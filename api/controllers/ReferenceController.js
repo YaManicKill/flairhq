@@ -129,6 +129,64 @@ module.exports = {
     });
   },
 
+  rejectWithNote: function (req, res) {
+    req.params = req.allParams();
+
+    Reference.update(req.params.id,
+      {
+        rejectnotes: req.params.rejectnotes,
+        rejected: true,
+        approved: false
+
+      })
+      .exec(function (err, ref) {
+        if (err) {
+          return res.serverError(err);
+        }
+        if (!ref) {
+          return res.notFound();
+        }
+        return res.ok(ref);
+      });
+
+    /*if (req.params.number && isNaN(req.params.number)) {
+      return res.badRequest({err: "Number must be a number"});
+    }
+
+    if (req.params.number < 0) {
+      return res.badRequest({err: "Number must be 0 or more"});
+    }
+
+    Reference.findOne({id: req.params.id, user: req.user.name}).exec(function (err, ref) {
+      if (err || !ref) {
+        return res.notFound();
+      }
+      if (req.user.name !== ref.user) {
+        return res.forbidden();
+      }
+      var approved = ref.approved;
+      if (ref.url !== req.params.url || ref.type !== req.params.type || ref.number !== req.params.number) {
+        approved = false;
+      }
+      Reference.update(req.params.id,
+        {
+          url: req.params.url,
+          user: req.user.name,
+          user2: req.params.user2,
+          description: req.params.description,
+          type: req.params.type,
+          gave: req.params.gave,
+          got: req.params.got,
+          notes: req.params.notes,
+          privatenotes: req.params.privatenotes,
+          approved: approved,
+          edited: true,
+          number: req.params.number || 0
+        })
+
+    }); */
+  },
+
   deleteRef: function (req, res) {
     var id = req.allParams().refId;
     Reference.findOne(id).exec(function (err, ref) {

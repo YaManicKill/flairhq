@@ -39,8 +39,10 @@ module.exports = {
     verified: "boolean",
     // This defines if the mods have approved it as a trade that can count
     approved: "boolean",
+    rejected: 'boolean',
     edited: "boolean",
     notes: "string",
-    privatenotes: "string"
+    privatenotes: "string",
+    rejectnotes: "array"
   }
 };
