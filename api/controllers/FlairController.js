@@ -70,6 +70,9 @@ module.exports = {
 
       // Send a PM to let them know application was accepted.
       var pmContent = 'Your application for ' + Flairs.formattedName(app.flair) + ' flair on /r/' + app.sub + ' has been approved.' + warning;
+      if(app.flair == 'pokeball'){
+        pmContent = pmContent + "\n\n Now that you are able to trade events and shinies, please remember to take into consideration the following:\n\n**Rule 3 - Full details must be posted for shiny and event Pokémon.**\n\nFull details are required to be posted for all shiny and event Pokémon:\n\n* **3A** The Pokémon's OT and ID\n\n* **3B** How you obtained the Pokémon\n\n* **3C** Disclosure, if applicable\n\n* [A detailed list for this rule can be found here](https://wk.reddit.com/r/pokemontrades/wiki/rules#wiki_rule_3_-_full_details_must_be_posted_for_valuable_pok.E9mon.)";
+      }
       promises.push(Reddit.sendPrivateMessage(refreshToken, 'FlairHQ Notification', pmContent, user.name));
       promises.push(Application.destroy({id: req.allParams().id}));
       await* promises;
