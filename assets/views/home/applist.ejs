@@ -18,11 +18,11 @@
                 <span ng-if="app.claimedBy"><small>(/u/{{app.claimedBy}} is viewing)</small></span>
                 <span class="pull-right">
                   <span title={{formattedRequirements(app.flair)}} text-align="center">
-                    {{formattedName(app.flair)}}
+                    {{formattedName(app.flair, app.sub)}}
                     <small>({{app.sub}})</small>
                 </span>
                   <button class="btn btn-primary has-spinner" ng-really-user="{{app.user}}"
-                          ng-really-flair="{{formattedName(app.flair)}}"
+                          ng-really-flair="{{formattedName(app.flair, app.sub)}}"
                           ng-really-click="approveApp(app.id)"
                           ng-class="[adminok.appFlair[app.id] ? 'glyphicon glyphicon-ok' : '',
                             adminspin.appFlair[app.id] ? 'active' : '']">

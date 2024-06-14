@@ -110,7 +110,9 @@ describe("Flair template formatting", function () {
   it("Formats flair names correctly", function () {
     var names = _.keys(stdFlairInfo.flairs);
     for (var i = 0; i < names.length; i++) {
-      assert.strictEqual(Flairs.formattedName(names[i]), stdFlairInfo.expectedFormat[names[i]], 'Formats ' + names[i] + ' flair incorrectly');
+      let flair = names[i]
+      let sub = stdFlairInfo["flairs"][flair]["sub"]
+      assert.strictEqual(Flairs.formattedName(flair, sub), stdFlairInfo.expectedFormat[flair], 'Formats ' + flair + ' flair incorrectly');
     }
   });
 });

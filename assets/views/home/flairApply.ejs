@@ -18,7 +18,7 @@
                        class="list-group-item" ng-class="[canUserApply(flair) ? '' : 'disabled',
                  (selectedFlair === flair.name) ? 'active' : '']"
                        href="#" ng-click="setSelectedFlair(flair.name, canUserApply(flair))" title={{formattedRequirements(flair.name)}}>
-                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name)}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
+                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name, "pokemontrades")}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
                     </a>
                 </div>
                 <div class="list-group col-md-6">
@@ -27,7 +27,7 @@
                        class="list-group-item" ng-class="[canUserApply(flair) ? '' : 'disabled',
                  (selectedFlair === flair.name) ? 'active' : '']"
                        href="#" ng-click="setSelectedFlair(flair.name, canUserApply(flair))" title={{formattedRequirements(flair.name)}}>
-                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name)}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
+                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name, "pokemontrades")}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
                     </a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                        class="list-group-item" ng-class="[canUserApply(flair) ? '' : 'disabled',
                  (selectedFlair === flair.name) ? 'active' : '']"
                        href="#" ng-click="setSelectedFlair(flair.name, canUserApply(flair))" title={{formattedRequirements(flair.name)}}>
-                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name)}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
+                        <span ng-class="'flair-' + flair.name">{{formattedName(flair.name, "svexchange")}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
                     </a>
                 </div>
                 <div class="list-group col-md-6">
@@ -48,7 +48,7 @@
                        class="list-group-item" ng-class="[canUserApply(flair) ? '' : 'disabled',
                  (selectedFlair === flair.name) ? 'active' : '']"
                        href="#" ng-click="setSelectedFlair(flair.name, canUserApply(flair))" title={{formattedRequirements(flair.name)}}>
-                        <span ng-class="'flair2-' + flair.name">{{formattedName(flair.name)}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
+                        <span ng-class="'flair2-' + flair.name">{{formattedName(flair.name, "svexchange")}}</span><small ng-show="applied(flair)"> (Pending)</small><small ng-show="userHasFlair(flair)" class="greencheck" title="You already have this flair."> ✓</small>
                     </a>
                 </div>
             </div>

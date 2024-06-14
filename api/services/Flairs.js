@@ -63,38 +63,57 @@ exports.hasEventFlair = function(user) {
   return !!flairClasses.match(eventFlairRegExp);
 };
 
-exports.formattedName = function(name) {
-  if (!name) {
+exports.formattedName = function(name, subreddit) {
+  const flairNames = {
+    "pokemontrades": {
+      "default" : "Gen 1 Dex",
+      "gen2" : "Gen 3 Dex",
+      "pokeball" : "Poké Ball",
+      "premierball" : "Premier Ball",
+      "greatball" : "Great Ball",
+      "ultraball" : "Ultra Ball",
+      "luxuryball" : "Luxury Ball",
+      "masterball" : "Master Ball",
+      "dreamball" : "Dream Ball",
+      "cherishball" : "Cherish Ball",
+      "ovalcharm" : "Oval Charm",
+      "shinycharm" : "Shiny Charm",
+      "involvement": "Involvement",
+      "pokeball1" : "Poké Ball",
+      "premierball1" : "Premier Ball",
+      "greatball1" : "Great Ball",
+      "ultraball1" : "Ultra Ball",
+      "luxuryball1" : "Luxury Ball",
+      "masterball1" : "Master Ball",
+      "dreamball1" : "Dream Ball",
+      "cherishball1" : "Cherish Ball",
+      "ovalcharm1" : "Oval Charm",
+      "shinycharm1" : "Shiny Charm",
+      "gsball1" : "GS Ball",
+      "upgrade" : "Up-Grade",
+      "eventribbon" : "Helper Ribbon"
+    },
+    "svexchange": {
+      "lucky" : "Lucky Egg",
+      "egg" : "Egg",
+      "eevee" : "Eevee Egg",
+      "togepi" : "Togepi Egg",
+      "torchic" : "Torchic Egg",
+      "pichu" : "Pichu Egg",
+      "manaphy" : "Manaphy Egg",
+      "eggcup" : "Egg Cup",
+      "cuteribbon" : "Cute Ribbon",
+      "coolribbon" : "Cool Ribbon",
+      "beautyribbon" : "Beauty Ribbon",
+      "smartribbon" : "Smart Ribbon",
+      "toughribbon" : "Tough Ribbon",
+      "upgrade" : "Up-Grade"
+    }
+  };
+  if (!name || !subreddit) {
     return "";
   }
-  var formatted = "",
-    numberToSliceTill,
-    suffix;
-  if (name.indexOf("ball") > -1) {
-    suffix = "Ball";
-    numberToSliceTill = -4;
-  } else if (name === "gen2") {
-    suffix = "II Ball";
-    numberToSliceTill = -1;
-  } else if (name.indexOf("charm") > -1) {
-    suffix = "Charm";
-    numberToSliceTill = -5;
-  } else if (name.indexOf("ribbon") > -1) {
-    suffix = "Ribbon";
-    numberToSliceTill = -6;
-  } else if (name === "eggcup") {
-    suffix = "Cup";
-    numberToSliceTill = -3;
-  } else if (name !== "egg" && name !== "involvement") {
-    suffix = "Egg";
-  }
-  formatted += name.charAt(0).toUpperCase();
-  formatted += name.slice(1, numberToSliceTill);
-  if (suffix) {
-    suffix = " " + suffix;
-    formatted += suffix;
-  }
-  return formatted;
+  return flairNames[subreddit][name] || "";
 };
 exports.validFC = function (fc) {
   if (fc.match(/^SW-\d{4}-\d{4}-\d{4}$/)) {

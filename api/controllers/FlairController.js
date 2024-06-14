@@ -69,7 +69,7 @@ module.exports = {
       promises.push(Event.create({type: "flairTextChange", user: req.user.name,content: "Changed " + user.name + "'s flair to " + css_flair}));
 
       // Send a PM to let them know application was accepted.
-      var pmContent = 'Your application for ' + Flairs.formattedName(app.flair) + ' flair on /r/' + app.sub + ' has been approved.' + warning;
+      var pmContent = 'Your application for ' + Flairs.formattedName(app.flair, app.sub) + ' flair on /r/' + app.sub + ' has been approved.' + warning;
       promises.push(Reddit.sendPrivateMessage(refreshToken, 'FlairHQ Notification', pmContent, user.name));
       promises.push(Application.destroy({id: req.allParams().id}));
       await* promises;

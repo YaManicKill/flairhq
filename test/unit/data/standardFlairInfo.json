@@ -26,7 +26,7 @@
     "toughribbon":{"name":"toughribbon","sub":"svexchange","giveaways":800,"eggs":0,"trades":0,"involvement":0}
   },
   "expectedFormat":{
-    "pokeball":"Poke Ball",
+    "pokeball":"Poké Ball",
     "premierball":"Premier Ball",
     "greatball":"Great Ball",
     "ultraball":"Ultra Ball",
