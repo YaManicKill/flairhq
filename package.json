@@ -57,7 +57,7 @@
     "regex": "^0.1.1",
     "request": "~2.64.0",
     "request-promise": "^1.0.2",
-    "sails": "~0.11.2",
+    "sails": "~1.5.3",
     "sails-disk": "~0.10.8",
     "sails-hook-babel": "^5.0.1",
     "sails-hook-schedule": "^0.2.2",
