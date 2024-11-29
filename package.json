@@ -45,7 +45,7 @@
     "jquery-browserify": "^1.8.1",
     "lodash": "^3.10.1",
     "mocha": "^2.3.4",
-    "moment": "~2.19.3",
+    "moment": "~2.29.4",
     "ng-mask": "^3.0.12",
     "node-cache": "^3.0.0",
     "node-sha1": "^1.0.1",
